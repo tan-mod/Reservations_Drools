@@ -1,0 +1,14 @@
+package com.drools;
+
+import com.drools.ReservationAlerts;
+import java.util.List;
+import java.util.Map;
+import java.util.Iterator;
+
+rule "Reservation Alert"
+when
+    $rAlerts : ReservationAlerts()
+    $map : Map(this["issue"] != "") from $rAlerts.reservationMap
+then
+    $map.put("alert", "XXXX");
+end
